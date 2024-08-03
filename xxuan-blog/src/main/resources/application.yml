@@ -1,0 +1,52 @@
+server:
+  port: 7777
+  ssl:
+    key-store: classpath:xxuan.top.jks
+    key-store-type: JKS
+    key-store-password: y174qqa763ii
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://122.152.220.196:3306/xxuan_blog?useSSL=false&serverTimezone=UTC
+#    username: root
+#    password: 123456
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/xxuan_blog?characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 5MB
+  redis:
+#    host: 122.152.220.196
+    host: 127.0.0.1
+    port: 6379
+#    password: 123456
+    connect-timeout: 3000
+    jedis:
+      pool:
+        max-active: 20
+        max-idle: 8
+        min-idle: 0
+        max-wait: -1
+mybatis-plus:
+  configuration:
+    # 日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      logic-delete-field: delFlag
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      id-type: auto
+
+aliyun:
+  oss:
+    endPoint: https://oss-cn-hangzhou.aliyuncs.com
+    accessKeyId: LTAI5tHMNTxGS2Jzh18mXFwF
+    accessKeySecret: 1rl9lZQY57tF9n9eZ4BQnvGL60TGVW
+    bucketName: xxuan-blog
